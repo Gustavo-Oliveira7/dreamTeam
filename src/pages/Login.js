@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import ApiContext from '../context/context';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { email, setEmail, password, setPassword } = useContext(ApiContext);
 
   const passwordLength = 6;
 
@@ -27,9 +27,9 @@ function Login() {
           data-testid="login-submit-btn"
           disabled={ !(password.length > passwordLength
           && email.includes('@') && email.includes('.com')) }
+          onSubmit={ console.log('alou') }
         >
           Entrar
-
         </button>
       </form>
     </div>
